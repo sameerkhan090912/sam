@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     .con{
+        width: 60vh;
+        height: 70vh;
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-rows: repeat(6,1fr);
+        border: 2px solid black;
+    }
+    .boxes{
+        border: 2px solid black;
+    }
+    .input{
+        grid-column: 1/5;
+    }
+    .con .boxes input{
+        width: 100%;
+        line-height: 100%;
+        border: none;
+        background-color: black;
+        color: white;
+        outline: none;
+    }
+    </style>
+   
+</head>
+<body>
+    <div class="con">
+        <div class="boxes input"><input type="number"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+        <div class="boxes"></div>
+    </div>
+</body>
+</html>

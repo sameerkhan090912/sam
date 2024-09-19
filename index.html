@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wheather app</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-family: monospace;
+        }
+        .con{
+            width: 60vh;
+            height: 70vh;
+            background: linear-gradient(blue,green);
+            padding: 20px;
+        }
+        .input{
+            width: 100%;
+            line-height: 100px;
+            background-color: transparent;
+            font-size: 50px;
+        }
+        .con button{
+            margin-top: 30px;
+            width: 40%;
+            height: 30px;
+            margin-left: 30%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="con">
+        <input id="inp" class="input" type="text">
+        <button onclick="temp()">search</button>
+
+        <h1 id="temp">temp: </h1>
+        <h1 id="humidity">wind: </h1>
+        <h1 id="pressure">pressure: </h1>
+    </div>
+
+    <script>
+        function temp(){
+            inp=document.getElementById("inp").value
+            
+            console.log(inp)
+            LinkApi=`https://api.openweathermap.org/data/2.5/weather?q=${inp}&appid=b4954d224091ea563abdc151c3965beb`
+
+            fetch(LinkApi)
+            .then(a =>{
+                return a.json();
+                
+            })
+            .then(a=>{
+                c=a.main.temp - 273.15;
+                c=parseInt(c)
+                w=a.main.humidity
+                p=a.main.pressure
+                console.log(a.main)
+                document.getElementById("temp").innerText=`temp : ${c} c`
+                document.getElementById("humidity").innerText=`Wind : ${w} k/hr`
+                document.getElementById("pressure").innerText=`Pressure : ${p} pascal`
+
+            })
+            inp=document.getElementById("inp").value=""
+        }
+    </script>
+</body>
+</html>
